@@ -67,6 +67,28 @@ public class Keynote08Wrapper {
 		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
 	}
 
+	long countOfSlideshows() throws ScriptException{
+		String[] strs = new String[]{
+				"tell application \"Keynote\"",
+				"count of slideshow",
+				"end tell"
+		};
+		return (Long)engine.eval(joinString(strs,"\r\n"));
+	}
+
+	List<String> getSlideshowNames() throws ScriptException{
+		String[] strs = new String[]{
+				"tell application \"Keynote\"",
+				"set slideshowList to {}",
+				"repeat with n from 1 to count of slideshow",
+				"set end of slideshowList to name of slideshow n",
+				"end repeat",
+				"slideshowList",
+				"end tell"
+		};
+		return (List<String>)engine.eval(joinString(strs,"\r\n"));
+	}
+
 	String joinString(List<String> stringList, String with){
 		return joinString(stringList.toArray(new String[]{}),with);
 	}

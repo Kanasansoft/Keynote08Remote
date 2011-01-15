@@ -24,9 +24,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"application id \"com.apple.iWork.Keynote\"",
-				"get true",
+				"true",
 				"on error",
-				"get false",
+				"false",
 				"end try"
 		};
 		//true  : 1 in the AppleScript Engine for Java 1.0

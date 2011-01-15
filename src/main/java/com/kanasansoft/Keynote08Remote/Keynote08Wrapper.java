@@ -34,6 +34,39 @@ public class Keynote08Wrapper {
 		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
 	}
 
+	boolean isPlaying() throws ScriptException{
+		String[] strs = new String[]{
+				"tell application \"Keynote\"",
+				"playing",
+				"end tell"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean isFrozen() throws ScriptException{
+		String[] strs = new String[]{
+				"tell application \"Keynote\"",
+				"frozen",
+				"end tell"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean isVisibleSlideWwitcher() throws ScriptException{
+		String[] strs = new String[]{
+				"tell application \"Keynote\"",
+				"slide switcher visible",
+				"end tell"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
 	String joinString(List<String> stringList, String with){
 		return joinString(stringList.toArray(new String[]{}),with);
 	}

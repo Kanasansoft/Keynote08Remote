@@ -153,6 +153,86 @@ public class Keynote08Wrapper {
 		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
 	}
 
+	boolean showSlideSwitcher() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"show slide switcher",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean acceptSlideSwitcher() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"accept slide switcher",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean cancelSlideSwitcher() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"cancel slide switcher",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean moveSlideSwitcherForward() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"move slide switcher forward",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean moveSlideSwitcherBackward() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"move slide switcher backward",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
 	String joinString(List<String> stringList, String with){
 		return joinString(stringList.toArray(new String[]{}),with);
 	}

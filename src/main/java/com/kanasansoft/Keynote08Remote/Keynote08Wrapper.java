@@ -89,6 +89,70 @@ public class Keynote08Wrapper {
 		return (List<String>)engine.eval(joinString(strs,"\r\n"));
 	}
 
+	boolean startSlideshow() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"start",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean stopSlideshow() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"stop slideshow",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean resumeSlideshow() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"resume slideshow",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean pauseSlideshow() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"pause slideshow",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
 	String joinString(List<String> stringList, String with){
 		return joinString(stringList.toArray(new String[]{}),with);
 	}

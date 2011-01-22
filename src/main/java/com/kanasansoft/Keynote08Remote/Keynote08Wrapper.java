@@ -157,7 +157,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if not slide switcher visible then",
 				"show slide switcher",
+				"end if",
 				"end tell",
 				"true",
 				"on error",
@@ -173,7 +175,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if slide switcher visible then",
 				"accept slide switcher",
+				"end if",
 				"end tell",
 				"true",
 				"on error",
@@ -189,7 +193,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if slide switcher visible then",
 				"cancel slide switcher",
+				"end if",
 				"end tell",
 				"true",
 				"on error",
@@ -205,7 +211,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if slide switcher visible then",
 				"move slide switcher forward",
+				"end if",
 				"end tell",
 				"true",
 				"on error",
@@ -221,7 +229,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if slide switcher visible then",
 				"move slide switcher backward",
+				"end if",
 				"end tell",
 				"true",
 				"on error",

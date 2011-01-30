@@ -161,6 +161,42 @@ public class Keynote08Wrapper {
 		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
 	}
 
+	boolean showNext() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"if playing then",
+				"show next",
+				"end if",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
+	boolean showPrevious() throws ScriptException{
+		String[] strs = new String[]{
+				"try",
+				"tell application \"Keynote\"",
+				"if playing then",
+				"show previous",
+				"end if",
+				"end tell",
+				"true",
+				"on error",
+				"false",
+				"end try"
+		};
+		//true  : 1 in the AppleScript Engine for Java 1.0
+		//false : 0 in the AppleScript Engine for Java 1.0
+		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
+	}
+
 	boolean showSlideSwitcher() throws ScriptException{
 		String[] strs = new String[]{
 				"try",

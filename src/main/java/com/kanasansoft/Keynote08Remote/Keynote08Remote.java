@@ -130,7 +130,39 @@ public class Keynote08Remote implements OnMessageObserver{
 
 	@Override
 	synchronized public void onMessage(Outbound outbound, byte frame, String data) {
-		//TODO
+		if(data==null){return;}
+		if(data.equals("")){return;}
+		String[] messages = data.split(",",2);
+		if(messages.length==0){return;}
+		String messageType = messages[0];
+		String messageData = messages.length==1?"":messages[1];
+		try {
+			if(messageType.equals("startslideshow")){
+				keynote.startSlideshow();
+			}else if(messageType.equals("stopslideshow")){
+				keynote.stopSlideshow();
+			}else if(messageType.equals("resumeslideshow")){
+				keynote.resumeSlideshow();
+			}else if(messageType.equals("pauseslideshow")){
+				keynote.pauseSlideshow();
+			}else if(messageType.equals("shownext")){
+				keynote.showNext();
+			}else if(messageType.equals("showprevious")){
+				keynote.showPrevious();
+			}else if(messageType.equals("showslideswitcher")){
+				keynote.showSlideSwitcher();
+			}else if(messageType.equals("acceptslideswitcher")){
+				keynote.acceptSlideSwitcher();
+			}else if(messageType.equals("cancelslideswitcher")){
+				keynote.cancelSlideSwitcher();
+			}else if(messageType.equals("moveslideswitcherfoward")){
+				keynote.moveSlideSwitcherForward();
+			}else if(messageType.equals("moveslideswitcherbackward")){
+				keynote.moveSlideSwitcherBackward();
+			}
+		} catch (ScriptException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

@@ -93,7 +93,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if not playing then",
 				"start",
+				"end if",
 				"end tell",
 				"true",
 				"on error",
@@ -109,7 +111,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if playing then",
 				"stop slideshow",
+				"if end",
 				"end tell",
 				"true",
 				"on error",
@@ -125,7 +129,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if not playing then",
 				"resume slideshow",
+				"end if",
 				"end tell",
 				"true",
 				"on error",
@@ -141,7 +147,9 @@ public class Keynote08Wrapper {
 		String[] strs = new String[]{
 				"try",
 				"tell application \"Keynote\"",
+				"if playing then",
 				"pause slideshow",
+				"end if",
 				"end tell",
 				"true",
 				"on error",

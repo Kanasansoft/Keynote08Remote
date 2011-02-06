@@ -34,6 +34,7 @@ function displayGroup(id){
 	});
 }
 function onOpenWebSocket(){
+	sendMessage(["status"]);
 }
 function onCloseWebSocket(){
 }

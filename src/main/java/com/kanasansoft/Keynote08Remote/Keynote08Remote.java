@@ -155,7 +155,7 @@ public class Keynote08Remote implements OnMessageObserver{
 				keynote.acceptSlideSwitcher();
 			}else if(messageType.equals("cancelslideswitcher")){
 				keynote.cancelSlideSwitcher();
-			}else if(messageType.equals("moveslideswitcherfoward")){
+			}else if(messageType.equals("moveslideswitcherforward")){
 				keynote.moveSlideSwitcherForward();
 			}else if(messageType.equals("moveslideswitcherbackward")){
 				keynote.moveSlideSwitcherBackward();

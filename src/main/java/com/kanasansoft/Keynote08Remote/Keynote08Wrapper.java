@@ -56,7 +56,7 @@ public class Keynote08Wrapper {
 		return ((Long)engine.eval(joinString(strs,"\r\n")))==1;
 	}
 
-	boolean isVisibleSlideWwitcher() throws ScriptException{
+	boolean isVisibleSlideSwitcher() throws ScriptException{
 		String[] strs = new String[]{
 				"tell application \"Keynote\"",
 				"slide switcher visible",

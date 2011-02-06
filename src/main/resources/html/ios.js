@@ -56,6 +56,11 @@ function onMessageWebSocket(message){
 	}
 }
 function onMessageWebSocketStatus(data){
+	switch(data){
+	case "stop":displayGroup("group_start_or_resume");break;
+	case "playing":displayGroup("group_slideshow");break;
+	case "slideswitcher":displayGroup("group_slide_switcher");break;
+	}
 }
 function onMessageWebSocketNotes(data){
 }

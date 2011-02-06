@@ -22,12 +22,12 @@ transition-duration:0.3s;
 transition-timing-function:cubic-bezier(0.2,0.8,0.2,0.8);
 }
 
-.button_frame[data-status=display]{
+.button_frame[data-status="display"]{
 top:85%;
 opacity:1.0;
 }
 
-.button_frame[data-status=none]{
+.button_frame[data-status="none"]{
 top:100%;
 opacity:0.0;
 }

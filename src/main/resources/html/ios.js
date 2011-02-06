@@ -34,6 +34,15 @@ function displayGroup(id){
 	});
 }
 function onOpenWebSocket(){
+	var elems=Array.prototype.slice.call(document.getElementsByTagName("div"));
+	elems.forEach(function(elem){
+		var match=elem.id.match(/^button_(.*)$/);
+		if(!match){return;}
+		var type=match[1].replace(/_/g,"");
+		elem.addEventListener("click",function(){
+			sendMessage([type]);
+		},false);
+	});
 	sendMessage(["status"]);
 }
 function onCloseWebSocket(){

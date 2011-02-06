@@ -25,6 +25,11 @@ function layout(){
 		}
 	});
 }
+function displayGroup(id){
+	["group_start_or_resume","group_slideshow","group_slide_switcher"].forEach(function(elem_id){
+		document.getElementById(elem_id).setAttribute("data-status",elem_id==id?"display":"none");
+	});
+}
 function onOpenWebSocket(){
 }
 function onCloseWebSocket(){

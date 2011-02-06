@@ -33,6 +33,9 @@ function displayGroup(id){
 		document.getElementById(elem_id).setAttribute("data-status",elem_id==id?"display":"none");
 	});
 }
+function updateOrientation(){
+	document.body.setAttribute("data-orientation",window.orientation.toString());
+}
 function onOpenWebSocket(){
 	var elems=Array.prototype.slice.call(document.getElementsByTagName("div"));
 	elems.forEach(function(elem){
@@ -82,8 +85,10 @@ function onUnloadWindow(){
 }
 function initial(eve){
 	layout();
+	updateOrientation();
 	parameters=getParameters();
 	window.addEventListener("orientationchange",function(){
+		updateOrientation();
 		window.scrollTo(0,0);
 		setTimeout(window.scrollTo,3000,0,0);
 	},false);

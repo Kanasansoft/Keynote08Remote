@@ -34,7 +34,9 @@ function displayGroup(id){
 	});
 }
 function updateOrientation(){
-	document.body.setAttribute("data-orientation",window.orientation.toString());
+	["group_start_or_resume","group_slideshow","group_slide_switcher"].forEach(function(elem_id){
+		document.getElementById(elem_id).setAttribute("data-orientation",window.orientation.toString());
+	});
 }
 function onOpenWebSocket(){
 	var elems=Array.prototype.slice.call(document.getElementsByTagName("div"));

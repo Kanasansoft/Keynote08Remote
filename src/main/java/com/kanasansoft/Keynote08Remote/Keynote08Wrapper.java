@@ -113,7 +113,7 @@ public class Keynote08Wrapper {
 				"tell application \"Keynote\"",
 				"if playing then",
 				"stop slideshow",
-				"if end",
+				"end if",
 				"end tell",
 				"true",
 				"on error",

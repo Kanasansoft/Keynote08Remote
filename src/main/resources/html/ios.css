@@ -1,0 +1,23 @@
+body{
+background-color:#000000;
+}
+
+.button_frame{
+position:fixed;
+left:10%;
+bottom:0;
+width:70%;
+height:10%;
+margin:0 auto;
+border:2px rgba(255,255,255,0.75) solid;
+border-bottom:0px transparent none;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+text-align:center;
+}
+
+.button_frame>div{
+width:15%;
+height:100%;
+display:inline-block;
+}

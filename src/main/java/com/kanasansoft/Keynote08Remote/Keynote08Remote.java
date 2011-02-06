@@ -145,6 +145,11 @@ public class Keynote08Remote implements OnMessageObserver{
 				keynote.resumeSlideshow();
 			}else if(messageType.equals("pauseslideshow")){
 				keynote.pauseSlideshow();
+			}else if(messageType.equals("startorresumeslideshow")){
+				if(keynote.startSlideshow()){
+				}else if(keynote.resumeSlideshow()){
+				}else{
+				}
 			}else if(messageType.equals("shownext")){
 				keynote.showNext();
 			}else if(messageType.equals("showprevious")){

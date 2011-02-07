@@ -76,7 +76,7 @@ public class Keynote08Wrapper {
 		return (Long)engine.eval(joinString(strs,"\r\n"));
 	}
 
-	List<String> getSlideshowNames() throws ScriptException{
+	List<String> getNamesOfSlideshow() throws ScriptException{
 		String[] strs = new String[]{
 				"tell application \"Keynote\"",
 				"set slideshowList to {}",

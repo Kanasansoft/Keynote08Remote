@@ -7,24 +7,24 @@ position:fixed;
 }
 
 #notes[data-orientation="0"]{
-right:0%;
-top:0%;
-width:100%;
-height:85%;
+right:5%;
+top:5%;
+width:90%;
+height:75%;
 }
 
 #notes[data-orientation="90"]{
-left:0%;
-top:0%;
-width:80%;
-height:100%;
+left:5%;
+top:5%;
+width:70%;
+height:90%;
 }
 
 #notes[data-orientation="-90"]{
-right:0%;
-top:0%;
-width:80%;
-height:100%;
+right:5%;
+top:5%;
+width:70%;
+height:90%;
 }
 
 .button_frame{

@@ -4,6 +4,9 @@ background-color:#000000;
 
 #notes{
 position:fixed;
+color:#ffffff;
+background-color:#000000;
+overflow:hidden;
 }
 
 #notes[data-orientation="0"]{

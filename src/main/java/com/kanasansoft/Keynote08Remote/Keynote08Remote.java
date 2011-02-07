@@ -19,6 +19,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import javax.script.ScriptException;
 
@@ -166,8 +167,19 @@ public class Keynote08Remote implements OnMessageObserver{
 			}else if(messageType.equals("moveslideswitcherbackward")){
 				keynote.moveSlideSwitcherBackward();
 			}
+			StringBuffer message = new StringBuffer();
 			String status=keynote.isVisibleSlideSwitcher()?"slideswitcher":keynote.isPlaying()?"playing":"stop";
-			outbound.sendMessage("status_"+status);
+			message.append("status_"+status);
+			if(status.equals("playing")){
+				message.append("_");
+				List<String> notesAll = keynote.getNotesOfCurrentSlideOfPlayingSlideshows();
+				for(String notes : notesAll){
+					if(notes != null){
+						message.append(notes);
+					}
+				}
+			}
+				outbound.sendMessage(message.toString());
 		} catch (ScriptException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

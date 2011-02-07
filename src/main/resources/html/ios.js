@@ -68,19 +68,24 @@ function onMessageWebSocket(message){
 	case "status":
 		onMessageWebSocketStatus(messageData);
 		break;
-	case "notes":
-		onMessageWebSocketNotes(messageData);
-		break;
 	}
 }
 function onMessageWebSocketStatus(data){
-	switch(data){
+	var position=data.indexOf("_");
+	var status;
+	var argString;
+	if(position==-1){
+		status=data;
+		argString="";
+	}else{
+		status=data.slice(0,position);
+		argString=data.slice(position+1);
+	}
+	switch(status){
 	case "stop":displayGroup("group_start_or_resume");break;
 	case "playing":displayGroup("group_slideshow");break;
 	case "slideswitcher":displayGroup("group_slide_switcher");break;
 	}
-}
-function onMessageWebSocketNotes(data){
 }
 function onUnloadWindow(){
 	webSocket.close();

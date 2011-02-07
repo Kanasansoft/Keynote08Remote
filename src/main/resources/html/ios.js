@@ -44,7 +44,7 @@ function onOpenWebSocket(){
 		var match=elem.id.match(/^button_(.*)$/);
 		if(!match){return;}
 		var type=match[1].replace(/_/g,"");
-		elem.addEventListener("click",function(){
+		elem.addEventListener("touchend",function(){
 			sendMessage([type]);
 		},false);
 	});
@@ -90,7 +90,15 @@ function onMessageWebSocketStatus(data){
 function onUnloadWindow(){
 	webSocket.close();
 }
+function cancelHandler(eve){
+	eve.preventDefault();
+}
 function initial(eve){
+	["touchstart","touchmove","touchend","gesturestart","gesturechange","gestureend"].forEach(
+			function(eventName){
+				document.addEventListener(eventName,cancelHandler,false);
+			}
+	);
 	layout();
 	updateOrientation();
 	parameters=getParameters();

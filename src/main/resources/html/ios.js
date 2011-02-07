@@ -34,7 +34,7 @@ function displayGroup(id){
 	});
 }
 function updateOrientation(){
-	["group_start_or_resume","group_slideshow","group_slide_switcher"].forEach(function(elem_id){
+	["notes","group_start_or_resume","group_slideshow","group_slide_switcher"].forEach(function(elem_id){
 		document.getElementById(elem_id).setAttribute("data-orientation",window.orientation.toString());
 	});
 }

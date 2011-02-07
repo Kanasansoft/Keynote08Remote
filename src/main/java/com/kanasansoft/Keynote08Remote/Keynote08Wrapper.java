@@ -89,6 +89,21 @@ public class Keynote08Wrapper {
 		return (List<String>)engine.eval(joinString(strs,"\r\n"));
 	}
 
+	List<String> getNotesOfCurrentSlideOfPlayingSlideshows() throws ScriptException{
+		String[] strs = new String[]{
+				"tell application \"Keynote\"",
+				"set notesList to {}",
+				"repeat with n from 1 to count of slideshow",
+				"if playing of slideshow n then",
+				"set end of notesList to notes of current slide of slideshow n",
+				"end if",
+				"end repeat",
+				"notesList",
+				"end tell"
+		};
+		return (List<String>)engine.eval(joinString(strs, "\r\n"));
+	}
+
 	boolean startSlideshow() throws ScriptException{
 		String[] strs = new String[]{
 				"try",

@@ -92,6 +92,7 @@ function onMessageWebSocketStatus(data){
 	case "playing":displayGroup("group_slideshow");break;
 	case "slideswitcher":displayGroup("group_slide_switcher");break;
 	}
+	displayNotes(argString);
 }
 function onUnloadWindow(){
 	webSocket.close();

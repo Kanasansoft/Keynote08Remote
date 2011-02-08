@@ -1,5 +1,6 @@
 var parameters;
 var webSocket;
+var timer;
 function getParameters(){
 	var data={};
 	var params=location.search.replace(/^\?/,"").split("&");
@@ -14,6 +15,24 @@ function getParameters(){
 		data[key].push(value);
 	}
 	return data;
+}
+function getTimer(callback,interval){
+	var handler=function(){
+		var callee=arguments.callee;
+		var dtm=new Date().getTime();
+		if(callee.time+callee.interval<dtm){
+			callback();
+			setTimeout(callee,callee.interval);
+			callee.time=dtm;
+		}else{
+			setTimeout(callee,callee.time+callee.interval-dtm+1);
+		}
+	};
+	handler.setInterval=function setInterval(interval){this.interval=interval;};
+	handler.resetTime=function resetTime(){this.time=new Date().getTime();};
+	handler.setInterval(interval);
+	handler.resetTime();
+	return handler;
 }
 function layout(){
 	var elems=Array.prototype.slice.call(document.getElementsByTagName("div"));
@@ -51,9 +70,12 @@ function onOpenWebSocket(){
 		if(!match){return;}
 		var type=match[1].replace(/_/g,"");
 		elem.addEventListener("touchend",function(){
+			timer.resetTime();
 			sendMessage([type]);
 		},false);
 	});
+	timer=getTimer(function(){sendMessage(["status"]);},1000);
+	timer();
 	sendMessage(["status"]);
 }
 function onCloseWebSocket(){

@@ -29,7 +29,7 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import org.eclipse.jetty.websocket.WebSocket.Outbound;
+import org.eclipse.jetty.websocket.WebSocket.Connection;
 
 public class Keynote08Remote implements OnMessageObserver{
 
@@ -131,7 +131,7 @@ public class Keynote08Remote implements OnMessageObserver{
 	}
 
 	@Override
-	synchronized public void onMessage(Outbound outbound, byte frame, String data) {
+	synchronized public void onMessage(Connection connection, String data) {
 		if(data==null){return;}
 		if(data.equals("")){return;}
 		String[] messages = data.split(",",2);
@@ -179,16 +179,12 @@ public class Keynote08Remote implements OnMessageObserver{
 					}
 				}
 			}
-				outbound.sendMessage(message.toString());
+				connection.sendMessage(message.toString());
 		} catch (ScriptException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	synchronized public void onMessage(Outbound outbound, byte frame, byte[] data, int offset, int length) {
 	}
 
 }

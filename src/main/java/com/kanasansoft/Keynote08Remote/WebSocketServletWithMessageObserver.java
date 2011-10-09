@@ -23,7 +23,7 @@ class WebSocketServletWithMessageObserver extends WebSocketServlet {
 		getServletContext().getNamedDispatcher("default").forward(request, response);
 	}
 	@Override
-	protected WebSocket doWebSocketConnect(HttpServletRequest request, String protocol) {
+	public WebSocket doWebSocketConnect(HttpServletRequest request, String connectionType) {
 		return new WebSocketWithMessageObserver(onMessageObserver);
 	}
 }

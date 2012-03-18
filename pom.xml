@@ -3,7 +3,7 @@
   <groupId>com.kanasansoft.Keynote08Remote</groupId>
   <artifactId>Keynote08Remote</artifactId>
   <name>Keynote08Remote</name>
-  <version>0.0.3</version>
+  <version>0.0.4-SNAPSHOT</version>
   <properties>
     <package.package-name>com.kanasansoft.Keynote08Remote</package.package-name>
     <package.main-class>${package.package-name}.${name}</package.main-class>
